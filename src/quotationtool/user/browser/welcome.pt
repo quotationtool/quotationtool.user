@@ -1,0 +1,10 @@
+<div i18n:domain="quotationtool">
+
+  <h1 i18n:translate="welcome-label">Welcome to Quotationtool.</h1>
+
+  <p i18n:translate="welcome-text">
+    You can now log in using the login name and password you entered
+    during the sign-up process.
+  </p>
+
+</div>

@@ -1,0 +1,79 @@
+<configure
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="quotationtool">
+
+  <include file="dependencies.zcml"/>
+  
+  <z3c:pagelet
+      for="quotationtool.site.interfaces.IQuotationtoolSite"
+      name="login.html"
+      class=".login.LoginForm"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      permission="zope.View"
+      /> 
+  <z3c:template
+      for=".login.LoginForm"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      template="login.pt"
+      />
+
+  <z3c:pagelet
+      for="quotationtool.site.interfaces.IQuotationtoolSite"
+      name="signup.html"
+      class=".signup.SignUpForm"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      permission="quotationtool.SignUp"
+      />
+  <z3c:template
+      for=".signup.SignUpForm"
+      template="signup.pt"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      />
+
+  <browser:page
+      for="quotationtool.site.interfaces.IQuotationtoolSite"
+      name="signup"
+      class=".signup.SignUpView"
+      attribute="signUp"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      permission="quotationtool.SignUp"
+      />
+
+  <z3c:pagelet
+      for="quotationtool.site.interfaces.IQuotationtoolSite"
+      name="welcome.html"
+      class=".signup.WelcomeView"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      permission="zope.View"
+      />
+  <z3c:template
+      for=".signup.WelcomeView"
+      template="welcome.pt"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      />
+
+  <z3c:pagelet
+      for="quotationtool.site.interfaces.IQuotationtoolSite"
+      name="changePassword.html"
+      class=".signup.PasswordForm"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      permission="quotationtool.ChangePassword"
+      />
+  <z3c:template
+      for=".signup.PasswordForm"
+      template="change_password.pt"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      />
+
+  <browser:page
+      for="quotationtool.site.interfaces.IQuotationtoolSite"
+      name="changePassword"
+      class=".signup.PasswordView"
+      attribute="changePassword"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      permission="quotationtool.ChangePassword"
+      />
+
+
+</configure>

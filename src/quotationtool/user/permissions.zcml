@@ -1,0 +1,17 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="quotationtool">
+  
+  <permission 
+      id="quotationtool.SignUp"
+      title="[signup-permission-title]
+	     Sign up as a user to the site."
+      />
+
+  <permission
+      id="quotationtool.ChangePassword"
+      title="[changepassword-permission-title]
+	     Change a principal's password."
+      />
+
+</configure>

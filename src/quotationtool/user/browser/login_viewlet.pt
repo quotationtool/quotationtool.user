@@ -1,0 +1,43 @@
+<div class="box" 
+     i18n:domain="quotationtool"
+     tal:define="principal_id request/principal/id">
+  
+  <h1 i18n:translate="login-box-label">Login</h1>
+
+  <div class="wrapper"
+      tal:condition="python: principal_id == 'zope.anybody'">
+
+    <div class="login-info" i18n:translate="">Not logged in</div>
+    <div class="login">
+      <a class="internal"
+	  href="/@@login.html"
+	  tal:attributes="href string:${view/siteURL}/@@login.html?camefrom=${view/siteURL}"
+	  i18n:translate="login-button">[Login]</a>
+    </div>
+
+    <div class="more-links">
+      <a class="internal" href="/@@signup.html"
+	 tal:attributes="href string:${view/siteURL}/@@signup.html"
+	 i18n:translate="">Create an account</a>
+    </div>
+
+  </div>
+
+  <div class="wrapper"
+      tal:condition="python: principal_id != 'zope.anybody'">
+    
+    <div class="login-info">
+      <span i18n:translate="">Logged in as:</span>
+      <span tal:content="request/principal/title | default">some user</span>
+    </div>
+
+    <div class="more-links">
+      <a class="internal" href="/@@changePassword.html"
+	 tal:attributes="href string:${view/siteURL}/@@changePassword.html"
+	 i18n:translate="">Change user data</a>
+    </div>
+
+  </div>
+
+</div>
+  

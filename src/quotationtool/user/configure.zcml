@@ -1,0 +1,40 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="quotationtool">
+
+  <include file="dependencies.zcml"/>
+
+  <include file="permissions.zcml"/>
+  <!--include in your app
+  <include file="roles.zcml"/>
+  -->
+
+  <class class=".signup.SignupPrincipalFolder">
+    <require
+        permission="zope.ManageServices"
+        interface="zope.container.interfaces.IContainer" />
+    <require
+        permission="zope.ManageServices"
+        attributes="prefix" />
+
+    <require
+        permission="quotationtool.SignUp"
+        attributes="signUp signup_roles"
+        />
+    <require
+        permission="zope.ManageServices"
+        set_attributes="signup_roles"
+        />
+    <require
+        permission="quotationtool.ChangePassword"
+        attributes="changePasswordTitle"
+        />
+  </class>
+
+
+  <subscriber handler=".createPAU"/>
+
+
+  <include package=".browser"/>
+
+</configure>

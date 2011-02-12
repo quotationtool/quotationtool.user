@@ -1,0 +1,52 @@
+<div i18n:domain="quotationtool">
+
+  <h1 i18n:translate="signup-label">Sign up</h1>
+
+  <p i18n:translate="password-advice">
+    Please DON'T use your precious password form your private machine,
+    email account or the like. Passwords are currently stored in
+    plaintext format. Passwords are hidden from the other users but
+    they are not secure in terms of IT security.
+  </p>
+
+  <form action="@@signup" method="post">
+    <div class="row">
+      <div class="label">
+        <label for="login" i18n:translate="">Login name:</label>
+      </div>
+      <div class="field">
+        <input type="text" name="login" id="login" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="label">
+        <label for="title" i18n:translate="">Full name:</label>
+      </div>
+      <div class="field">
+        <input type="text" name="title" id="title" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="label">
+        <label for="password" i18n:translate="">Password:</label>
+      </div>
+      <div class="field">
+        <input type="password" name="password" id="password" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="label">
+        <label for="confimration" i18n:translate="">Confirm password:</label>
+      </div>
+      <div class="field">
+        <input type="password" name="confirmation" id="confirmation" />
+      </div>
+    </div>
+
+    <div class="row">
+      <input type="submit" name="quotationtool.SignUp" value="Sign up"
+             i18n:attributes="value button-signup" />
+    </div>
+  </form>
+
+</div>

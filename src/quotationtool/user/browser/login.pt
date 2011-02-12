@@ -1,0 +1,51 @@
+<div tal:define="principal python:request.principal.id"
+    i18n:domain="quotationtool">
+
+  <p i18n:translate="login-notloggedin-challenge" 
+      tal:condition="python: principal == 'zope.anybody'">
+    Please provide Login Information
+  </p>
+
+  <p i18n:translate="login-loggedin-challenge" 
+      tal:condition="python: principal != 'zope.anybody'">
+    You are not authorized to perform this action. However, you may
+    login as a different user who is authorized.
+  </p>
+
+  <form action="" method="post"
+	tal:attributes="action request/URL">
+
+    <div class="row">
+      <div class="label"><label for="login" i18n:translate="">User Name</label></div>
+      <div class="field">
+	<input type="text" name="login" id="login"/>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="label"><label for="password" i18n:translate="">Password</label></div>
+      <div class="field">
+	<input type="password" name="password" id="password"/>
+      </div>
+    </div>
+    
+    <div class="row">
+      <button class="form-element" type="submit" 
+	     name="quotationtool.Login" 
+	     id="quotationtool.Login">Log In!</button>
+    </div>
+    <input type="hidden" name="camefrom" tal:attributes="value request/camefrom | nothing" />
+
+  </form>
+  
+  <div>
+    <span i18n:translate="">
+      No account yet?
+    </span>
+    <a class="internal" href="@@signup.html"
+        tal:attributes="href string:${request/URL/-1}/@@signup.html">
+      Create an account.
+    </a>
+  </div>
+
+</div>
