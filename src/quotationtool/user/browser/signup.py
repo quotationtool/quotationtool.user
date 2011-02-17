@@ -3,20 +3,26 @@ from zope.component import getUtility
 from zope.publisher.browser import BrowserView
 from zope.exceptions.interfaces import UserError
 from zope.security.proxy import removeSecurityProxy
-
 from zope.authentication.interfaces import IAuthentication
 from zope.pluggableauth.interfaces import IPluggableAuthentication
 from zope.securitypolicy.interfaces import IPrincipalRoleManager
-
 from z3c.pagelet.browser import BrowserPagelet
+from zope.viewlet.viewlet import ViewletBase
+from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
 
 from quotationtool.user.interfaces import ISignup
 
-# TODO: remove this after generation form security to user
-#from quotationtool.security.interfaces import ISignup as ISignupOLD
-
 
 _ = MessageFactory('quotationtool')
+
+
+class SignUpViewlet(ViewletBase):
+    """ A viewlet for the provider used on the login form. """
+
+    template = ViewPageTemplateFile('signup_viewlet.pt')
+
+    def render(self):
+        return self.template()
 
 
 class SignUpForm(BrowserPagelet):

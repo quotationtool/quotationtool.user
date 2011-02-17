@@ -5,7 +5,8 @@
 
   <include file="dependencies.zcml"/>
   
-  <z3c:pagelet
+  <!-- The login form is defined in quotationtool.skin
+      z3c:pagelet
       for="quotationtool.site.interfaces.IQuotationtoolSite"
       name="login.html"
       class=".login.LoginForm"
@@ -16,6 +17,14 @@
       for=".login.LoginForm"
       layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
       template="login.pt"
+      /-->
+  <browser:viewlet
+      for="*"
+      manager="quotationtool.skin.interfaces.ILoginFormExtensions"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      permission="zope.View"
+      name="quotationtool.user.browser.signup.SignUpViewlet"
+      class="quotationtool.user.browser.signup.SignUpViewlet"
       />
 
   <z3c:pagelet

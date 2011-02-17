@@ -1,0 +1,9 @@
+  <div>
+    <span i18n:translate="">
+      No account yet?
+    </span>
+    <a class="internal" href="@@signup.html"
+        tal:attributes="href string:${view/quotationtoolURL}/@@signup.html">
+      Create an account.
+    </a>
+  </div>
