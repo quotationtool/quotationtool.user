@@ -9,6 +9,8 @@ from zope.securitypolicy.interfaces import IPrincipalRoleManager
 from z3c.pagelet.browser import BrowserPagelet
 from zope.viewlet.viewlet import ViewletBase
 from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
+from zope.app.component import hooks
+from zope.traversing.browser import absoluteURL
 
 from quotationtool.user.interfaces import ISignup
 
@@ -23,6 +25,10 @@ class SignUpViewlet(ViewletBase):
 
     def render(self):
         return self.template()
+
+    def quotationtoolURL(self):
+        # use hooks because component lookup error if error is context
+        return absoluteURL(hooks.getSite(), self.request)
 
 
 class SignUpForm(BrowserPagelet):

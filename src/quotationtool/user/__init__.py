@@ -21,7 +21,7 @@ def createPAU(event):
 
     pau['SessionCredentialsPlugin'] = session_creds = SessionCredentialsPlugin()
     pau.credentialsPlugins = [session_creds.__name__]
-    session_creds.loginpagename = u"login.html"
+    session_creds.loginpagename = u"loginForm.html"
     loginfield = u"login"
     passwordfield = u"password"
 
