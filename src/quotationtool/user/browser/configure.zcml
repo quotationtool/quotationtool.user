@@ -22,7 +22,7 @@
       for="*"
       manager="quotationtool.skin.interfaces.ILoginFormExtensions"
       layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
-      permission="zope.View"
+      permission="quotationtool.SignUp"
       name="quotationtool.user.browser.signup.SignUpViewlet"
       class="quotationtool.user.browser.signup.SignUpViewlet"
       />
@@ -54,7 +54,7 @@
       name="welcome.html"
       class=".signup.WelcomeView"
       layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
-      permission="zope.View"
+      permission="quotationtool.SignUp"
       />
   <z3c:template
       for=".signup.WelcomeView"
@@ -83,6 +83,5 @@
       layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
       permission="quotationtool.ChangePassword"
       />
-
 
 </configure>

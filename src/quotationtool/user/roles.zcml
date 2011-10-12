@@ -13,6 +13,16 @@
       />
 
   <grant
+      permission="quotationtool.ChangePassword"
+      role="quotationtool.Manager"
+      />
+  
+  <grant
+      permission="quotationtool.SignUp"
+      role="quotationtool.Manager"
+      />
+
+  <grant
       permission="quotationtool.SignUp"
       role="quotationtool.Visitor"
       />
