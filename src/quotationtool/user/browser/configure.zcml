@@ -54,7 +54,7 @@
       name="welcome.html"
       class=".signup.WelcomeView"
       layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
-      permission="quotationtool.SignUp"
+      permission="zope.View"
       />
   <z3c:template
       for=".signup.WelcomeView"
