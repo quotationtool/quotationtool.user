@@ -1,0 +1,29 @@
+<div i18n:domain="quotationtool">
+
+  <h1 i18n:translate="">Personal Data and Preferences</h1>
+
+  <p i18n:translate="">
+    You can change and manage your personal data and preferences.
+  </p>
+
+  <div class="account-index" tal:repeat="nameview context/views">
+    <tal:block define="name python:nameview[0]">
+      <tal:block define="view python:nameview[1]">
+
+	<div class="view" tal:condition="view/visible">
+
+	  <div class="title">
+	    <a href="@@changePassword.html"
+	       tal:content="view/title|nothing"
+	       tal:attributes="href string:${context/@@absolute_url}/@@${name}"
+	       >Change Password</a>
+	  </div>
+	  <div class="description" tal:content="view/description|nothing"/>
+
+	</div>
+
+      </tal:block>
+    </tal:block>
+  </div>
+
+</div>

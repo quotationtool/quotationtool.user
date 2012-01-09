@@ -14,4 +14,10 @@
 	     Change a principal's password."
       />
 
+  <permission
+      id="quotationtool.ManageMyAccount"
+      title="[manage-my-account-permission-title]
+	     Manage my personal account."
+      />
+
 </configure>

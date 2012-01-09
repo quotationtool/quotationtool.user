@@ -63,7 +63,7 @@
       />
 
   <z3c:pagelet
-      for="quotationtool.site.interfaces.IQuotationtoolSite"
+      for="..interfaces.IAccountController"
       name="changePassword.html"
       class=".signup.PasswordForm"
       layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
@@ -76,12 +76,15 @@
       />
 
   <browser:page
-      for="quotationtool.site.interfaces.IQuotationtoolSite"
+      for="..interfaces.IAccountController"
       name="changePassword"
       class=".signup.PasswordView"
       attribute="changePassword"
       layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
       permission="quotationtool.ChangePassword"
       />
+
+  <include file="account.zcml"/>
+  <include file="nav.zcml"/>
 
 </configure>

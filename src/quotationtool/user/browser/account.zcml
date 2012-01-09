@@ -1,0 +1,47 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="quotationtool">
+
+  <adapter
+      for="quotationtool.site.interfaces.IQuotationtoolSite
+	   quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      provides="..interfaces.IAccountController"
+      name="account"
+      factory=".account.Account"
+      permission="quotationtool.ManageMyAccount"
+      />
+  <class class=".account.Account">
+    <require
+	interface="..interfaces.IAccountController"
+	permission="quotationtool.ManageMyAccount"
+	/>
+  </class>
+  <browser:defaultView
+      for="..interfaces.IAccountController"
+      name="index.html"
+      />
+
+  <view
+      for=".account.Account"
+      name="label"
+      factory=".account.AccountLabel"
+      type="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      permission="zope.View"
+      />
+
+  <z3c:pagelet
+      for="..interfaces.IAccountController"
+      name="index.html"
+      class=".account.AccountIndex"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      permission="quotationtool.ManageMyAccount"
+      />
+  <z3c:template
+      for=".account.AccountIndex"
+      template="account_index.pt"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      />
+
+</configure>

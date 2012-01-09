@@ -16,6 +16,21 @@
       permission="quotationtool.ChangePassword"
       role="quotationtool.Manager"
       />
+
+  <grant
+      permission="quotationtool.ManageMyAccount"
+      role="quotationtool.Member"
+      />
+
+  <grant
+      permission="quotationtool.ManageMyAccount"
+      role="quotationtool.Editor"
+      />
+
+  <grant
+      permission="quotationtool.ManageMyAccount"
+      role="quotationtool.Manager"
+      />
   
   <grant
       permission="quotationtool.SignUp"

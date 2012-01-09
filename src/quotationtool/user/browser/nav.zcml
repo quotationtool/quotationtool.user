@@ -1,0 +1,39 @@
+<configure
+    xmlns:zope="http://namespaces.zope.org/zope"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="quotationtool">
+
+  <!-- navigation -->
+
+  <z3c:siteMenuItem
+      for="*"
+      title="[acoount-navigation] Account"
+      name="account"
+      class=".nav.AccountMainNavItem"
+      permission="quotationtool.ManageMyAccount"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      manager="quotationtool.skin.interfaces.IMainNav"
+      viewName="account/"
+      subMenuProviderName="accountsubnav"
+      weight="1000"
+      />
+  <zope:adapter
+      factory="z3c.menu.ready2go.checker.TrueSelectedChecker"
+      for="..interfaces.IAccountController
+           quotationtool.skin.interfaces.IQuotationtoolBrowserLayer
+           ..interfaces.IAccountView
+           quotationtool.skin.interfaces.IMainNav
+           .nav.IAccountMainNavItem"
+      provides="z3c.menu.ready2go.interfaces.ISelectedChecker"
+      />
+
+  <browser:viewletManager
+      name="accountsubnav"
+      class=".nav.AccountSubNav"
+      provides=".nav.IAccountSubNav"
+      permission="zope.View"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      />
+
+</configure>

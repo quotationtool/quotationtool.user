@@ -11,8 +11,9 @@ from zope.viewlet.viewlet import ViewletBase
 from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
 from zope.app.component import hooks
 from zope.traversing.browser import absoluteURL
+from zope.interface import implements
 
-from quotationtool.user.interfaces import ISignup
+from quotationtool.user import interfaces
 
 
 _ = MessageFactory('quotationtool')
@@ -44,7 +45,7 @@ class SignUpHelper(object):
 
         for name, plugin in pau.getAuthenticatorPlugins():
             # TODO: remove old
-            if ISignup.providedBy(plugin):# or ISignupOLD.providedBy(plugin):
+            if interfaces.ISignup.providedBy(plugin):# or ISignupOLD.providedBy(plugin):
                 return plugin
 
         raise TypeError("Signup requires a sign-up capable authenticator "
@@ -76,6 +77,16 @@ class WelcomeView(BrowserPagelet):
 
 class PasswordForm(BrowserPagelet):
     """A view that lets a user change his password."""
+
+    implements(interfaces.IAccountView)
+
+    weight = 10000
+    
+    title = _(u"Change Password")
+
+    description = _(u"Change your password and other account settings.")
+
+    visible = True
 
 
 class PasswordView(SignUpHelper, BrowserView):
