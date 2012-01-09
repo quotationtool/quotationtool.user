@@ -12,6 +12,7 @@
   <include package="zope.annotation"/>
   <include package="zope.traversing"/>
   <include package="zope.container"/>
+  <include package="zope.password"/>
 
   <include package="quotationtool.security"/>
   <include package="quotationtool.site"/>
